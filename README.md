@@ -2,6 +2,8 @@
 
 This project contains some basic validations using cypress, typescript and cucumber.
 
+Cucumber Html reporting added.
+
 ## Run tests
 - Compile project
     - npm install
@@ -10,4 +12,7 @@ This project contains some basic validations using cypress, typescript and cucum
     - npm run test
 
 - Run with tags
-    - mpn run cy:tags
+    - npx cypress run --env tags='@tagname'"
+
+- Report
+    - npm run report
