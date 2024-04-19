@@ -1,0 +1,45 @@
+{
+  "name": "cypress-bdd-typescrit",
+  "version": "1.0.0",
+  "description": "Cypress-Typescript with BDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "cy-open": "cypress open",
+    "cy-run": "cypress run",
+    "login-feature": "npx cypress run --env tags='@login'",
+    "elements-feature": "npx cypress run --env tags='@elements'",
+    "cucumber-report": "node generate-cucumber-report.js"
+  },
+  "keywords": [
+    "Cypress",
+    "Typescript",
+    "BDD"
+  ],
+  "author": "Luis Perez",
+  "license": "ISC",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^13.8.0",
+    "esbuild": "^0.20.2",
+    "prettier": "^2.3.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
+    "cypress-cucumber-preprocessor": "^4.1.0",
+    "multiple-cucumber-html-reporter": "^1.18.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/e2e/[filepath]/**/*.{js,ts}",
+      "cypress/e2e/[filepath].{js,ts}",
+      "cypress/**/step_definitions/**/*.{js,ts}"
+    ]
+  },
+  "cucumberJson": {
+    "generate": true,
+    "outputFolder": "../reports",
+    "fileSuffix": ".cucumber"
+  }
+}
