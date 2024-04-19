@@ -1,25 +1,52 @@
 import { defineConfig } from "cypress";
 import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
-import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
+import { addCucumberPreprocessorPlugin , afterRunHandler} from "@badeball/cypress-cucumber-preprocessor";
 import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild";
 
+const fs = require('fs').promises;
+const setupNodeEvents = async (on, config) => {
+  await addCucumberPreprocessorPlugin(on, config, {
+    omitAfterRunHandler: true,
+  });
+
+  on(
+    'file:preprocessor',
+    createBundler({
+      plugins: [createEsbuildPlugin(config)],
+    }),
+  );
+
+  on('after:run', async (results) => {
+    if (results) {
+      await afterRunHandler(config);
+      await fs.writeFile(
+        'cypress/reports/results.json',
+        JSON.stringify(
+          {
+            browserName: results.browserName,
+            browserVersion: results.browserVersion,
+            osName: results.osName,
+            osVersion: results.osVersion,
+            nodeVersion: results.config.resolvedNodeVersion,
+            cypressVersion: results.cypressVersion,
+            startedTestsAt: results.startedTestsAt,
+            endedTestsAt: results.endedTestsAt,
+          },
+          null,
+          '\t',
+        ),
+      );
+    }
+  });
+  return config;
+};
+
 export default defineConfig({
+  reporter: 'reporters/reporter.js',
   e2e: {
     baseUrl: 'https://the-internet.herokuapp.com/',
     specPattern: "**/*.feature",
-    async setupNodeEvents(
-      on: Cypress.PluginEvents,
-      config: Cypress.PluginConfigOptions
-    ): Promise<Cypress.PluginConfigOptions> {
-      await addCucumberPreprocessorPlugin(on, config);
-      on(
-        "file:preprocessor",
-        createBundler({
-          plugins: [createEsbuildPlugin(config)],
-        })
-      );
-      return config;
-    },
+    setupNodeEvents,
     env: {
       omitFiltered: true,
       filterSpecs: true

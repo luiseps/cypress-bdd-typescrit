@@ -1,4 +1,4 @@
-@add
+@elements
 Feature: Element validations
 
     Scenario: Add elements

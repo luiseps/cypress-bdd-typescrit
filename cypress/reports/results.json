@@ -1,0 +1,10 @@
+{
+	"browserName": "electron",
+	"browserVersion": "118.0.5993.159",
+	"osName": "darwin",
+	"osVersion": "22.6.0",
+	"nodeVersion": "21.7.3",
+	"cypressVersion": "13.8.0",
+	"startedTestsAt": "2024-04-19T21:46:01.511Z",
+	"endedTestsAt": "2024-04-19T21:46:14.159Z"
+}
