@@ -9,7 +9,7 @@
     "cy-run": "cypress run",
     "login-feature": "npx cypress run --env tags='@login'",
     "elements-feature": "npx cypress run --env tags='@elements'",
-    "cucumber-report": "node ./reporters/reporter.js"
+    "report": "node ./reporters/reporter.js"
   },
   "keywords": [
     "Cypress",

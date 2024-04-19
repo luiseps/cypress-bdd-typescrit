@@ -42,7 +42,6 @@ const setupNodeEvents = async (on, config) => {
 };
 
 export default defineConfig({
-  reporter: 'reporters/reporter.js',
   e2e: {
     baseUrl: 'https://the-internet.herokuapp.com/',
     specPattern: "**/*.feature",
