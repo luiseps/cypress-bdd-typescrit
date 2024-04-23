@@ -1,0 +1,6 @@
+export const USERNAME_INPUT = '#username'
+export const PASSWORD_INPUT = '#password'
+export const LOGIN_BUTTON = 'button[type="submit"]'
+export const LOGOUT_BUTTON = 'a[class="button secondary radius"]'
+export const MESSAGE_POPUP = '#flash'
+export const DELETE_BUTTON = 'button[class="added-manually"]'

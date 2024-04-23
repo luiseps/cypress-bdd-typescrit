@@ -1,6 +1,4 @@
-const ADD_ELEMENT_BUTTON = 'Add Element'
-const DELETE_ELEMENT_BUTTON = 'Delete'
-const DELETE_ELEMENTS = 'button[class="added-manually"]'
+import *  as Elements from '../pages/elements' 
 
 export class ElementPage {
 
@@ -9,18 +7,18 @@ export class ElementPage {
     }
 
     static addElement(){
-        cy.contains(ADD_ELEMENT_BUTTON).click()
+        cy.contains(Elements.ADD_ELEMENT_BUTTON).click()
     }
 
     static deleteElement(){
-        cy.contains(DELETE_ELEMENT_BUTTON).click()
+        cy.contains(Elements.DELETE_ELEMENT_BUTTON).click()
     }
 
     static verifyIfElementIsVisible(){
-        cy.contains(DELETE_ELEMENT_BUTTON).should('be.visible')
+        cy.contains(Elements.DELETE_ELEMENT_BUTTON).should('be.visible')
     }
 
     static verifyIfElementWasDeleted(){
-        cy.get(DELETE_ELEMENTS).should('not.exist')
+        cy.get(Elements.DELETE_ELEMENTS).should('not.exist')
     }
 }
