@@ -7,8 +7,8 @@
     "test": "npx cypress run",
     "cy-open": "cypress open",
     "cy-run": "cypress run",
-    "login": "npx cypress run --env tags='@login'",
-    "elements": "npx cypress run --env tags='@elements'",
+    "login": "npx cypress run --env tags=\"@login\"",
+    "elements": "npx cypress run --env tags=\"@elements\"",
     "report": "node ./reporters/reporter.js"
   },
   "keywords": [
