@@ -6,13 +6,11 @@ export class LoginPage {
     static goToLoginPage(){
         cy.visit("/login")
         cy.url().should('include', 'login') 
+    
     }
 
     static enterCredentials(username, password){
-        cy.visit("/login")
-        cy.get(Login.USERNAME_INPUT).type(username)
-        cy.get(Login.PASSWORD_INPUT).type(password)
-        cy.get(Login.LOGIN_BUTTON).click()
+        cy.login(username, password);
     }
 
     static verifyLoginSucessfully(){
