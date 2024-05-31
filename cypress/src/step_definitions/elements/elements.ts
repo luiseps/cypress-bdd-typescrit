@@ -1,22 +1,22 @@
-import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
-import { ElementPage } from '../../steps/elementPage'
+import { When, Then, Given } from '@badeball/cypress-cucumber-preprocessor'
+import ElementPage from '../../steps/elementPage'
 
 Given('I open the home page', () => {
-    ElementPage.goToElementsPage()
+	ElementPage.goToElementsPage()
 })
 
 When('I add an element', () => {
-    ElementPage.addElement()
+	ElementPage.addElement()
 })
 
 When('I delete the element', () => {
-    ElementPage.deleteElement()
+	ElementPage.deleteElement()
 })
 
 Then('I should see that the element is visible', () => {
-    ElementPage.verifyIfElementIsVisible()
+	ElementPage.verifyIfElementIsVisible()
 })
 
 Then('I should see that the element was deleted', () => {
-    ElementPage.verifyIfElementWasDeleted()
+	ElementPage.verifyIfElementWasDeleted()
 })

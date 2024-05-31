@@ -4,7 +4,7 @@
   "description": "Cypress-Typescript with BDD",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run",
+    "test": "npx cypress run --browser chrome && npm run report",
     "cy-open": "cypress open",
     "cy-run": "cypress run",
     "login": "npx cypress run --env tags=\"@login\"",

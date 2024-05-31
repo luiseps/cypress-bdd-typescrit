@@ -2,7 +2,7 @@ import { defineConfig } from "cypress";
 import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 import { addCucumberPreprocessorPlugin , afterRunHandler} from "@badeball/cypress-cucumber-preprocessor";
 import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild";
-//const cypress_esbuild_preprocessor = require('@bahmutov/cypress-esbuild-preprocessor');
+
 const fs = require('fs').promises;
 const setupNodeEvents = async (on, config) => {
   await addCucumberPreprocessorPlugin(on, config, {
@@ -15,6 +15,14 @@ const setupNodeEvents = async (on, config) => {
       plugins: [createEsbuildPlugin(config)],
     }),
   );
+  on('before:browser:launch', (browser, launchOptions) => {
+    if (browser.family === 'chromium' && browser.name !== 'electron') {
+        launchOptions.args.push("--incognito");                
+    } else if (browser.name === 'electron') {                
+        launchOptions.preferences.incognito = true               
+    }
+    return launchOptions
+})  
 
   on('after:run', async (results) => {
     if (results) {
