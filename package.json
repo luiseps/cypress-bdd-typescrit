@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run --browser chrome && npm run report",
-    "cy-open": "cypress open",
-    "cy-run": "cypress run",
-    "login": "npx cypress run --env tags=\"@login\"",
-    "elements": "npx cypress run --env tags=\"@elements\"",
+    "cy-open": "cypress open && npm run report",
+    "cy-run": "cypress run && npm run report",
+    "login": "npx cypress run --env tags=\"@login\" && npm run report",
+    "elements": "npx cypress run --env tags=\"@elements\" && npm run report",
     "report": "node ./reporters/reporter.js"
   },
   "keywords": [
