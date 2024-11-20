@@ -20,13 +20,13 @@
   "license": "ISC",
   "devDependencies": {
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "cypress": "^13.8.1",
+    "cypress": "^13.16.0",
     "esbuild": "^0.20.2",
     "prettier": "^2.3.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^20.0.4",
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
     "dayjs": "^1.11.10",
     "multiple-cucumber-html-reporter": "^3.6.2"
   },
