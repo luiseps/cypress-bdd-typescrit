@@ -4,12 +4,12 @@
   "description": "Cypress-Typescript with BDD",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --browser chrome && npm run report",
-    "cy-open": "cypress open && npm run report",
-    "cy-run": "cypress run && npm run report",
-    "login": "npx cypress run --env tags=\"@login\" && npm run report",
-    "elements": "npx cypress run --env tags=\"@elements\" && npm run report",
-    "report": "node ./reporters/reporter.js"
+    "test": "npx cypress run --browser chrome && npm run reporter",
+    "debug": "cypress open",
+    "report": "npm run reporter",
+    "login": "npx cypress run --env tags=\"@login\" && npm run reporter",
+    "elements": "npx cypress run --env tags=\"@elements\" && npm run reporter",
+    "reporter": "node ./reporters/reporter.js"
   },
   "keywords": [
     "Cypress",
@@ -19,16 +19,16 @@
   "author": "Luis Perez",
   "license": "ISC",
   "devDependencies": {
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "cypress": "^13.16.0",
-    "esbuild": "^0.20.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "cypress": "^15.0.0",
+    "esbuild": "^0.25.9",
     "prettier": "^2.3.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
-    "dayjs": "^1.11.10",
-    "multiple-cucumber-html-reporter": "^3.6.2"
+    "@badeball/cypress-cucumber-preprocessor": "^23.0.0",
+    "dayjs": "^1.11.17",
+    "multiple-cucumber-html-reporter": "^3.9.3"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
